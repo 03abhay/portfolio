@@ -3,6 +3,7 @@ export interface Project {
   tech: string[];
   description: string;
   icon: string;
+  link?: string;
 }
 
 export interface Experience {
