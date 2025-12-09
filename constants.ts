@@ -53,4 +53,4 @@ Your goal is to answer visitor questions about Abhay's professional background, 
 `;
 
 // Updated with user provided Discord CDN link
-export const PROFILE_IMAGE_URL = "https://cdn.discordapp.com/attachments/1442425581332336733/1442425701218385972/abhay.png.png?ex=6925631e&is=6924119e&hm=0a575456a8ed2d3e0b4f7b8b3751291c724e46bf5fa6c6ca4c60bed89d45b2df";
+export const PROFILE_IMAGE_URL = "https://github.com/03abhay/portfolio/blob/main/abhay.png";
