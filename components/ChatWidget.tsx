@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI, Chat } from "@google/genai";
@@ -36,11 +37,25 @@ const ChatWidget: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Initialize Gemini Client and Chat Session if not already initialized
+      // 1. Safely retrieve API Key
+      let apiKey = "";
+      try {
+        // Attempt to get the key from process.env if available
+        apiKey = process.env.API_KEY || "";
+      } catch (e) {
+        // Ignore ReferenceError if process is not defined in the browser
+      }
+
+      // 2. Check if key exists. If not, trigger the fallback mechanism immediately.
+      if (!apiKey) {
+        // Simulate a short delay for realism before showing the offline message
+        await new Promise(resolve => setTimeout(resolve, 800));
+        throw new Error("OFFLINE_MODE");
+      }
+
+      // 3. Initialize Gemini Client if not ready
       if (!chatSessionRef.current) {
-        // @google/genai coding guidelines: API key must be obtained exclusively from process.env.API_KEY
-        // We assume process.env.API_KEY is available and valid as per guidelines.
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const ai = new GoogleGenAI({ apiKey });
         
         chatSessionRef.current = ai.chats.create({
           model: 'gemini-2.5-flash',
@@ -50,32 +65,28 @@ const ChatWidget: React.FC = () => {
         });
       }
       
-      // Use sendMessage for chat functionality (maintains history)
+      // 4. Send Message
       const response = await chatSessionRef.current.sendMessage({
         message: userMessage.text
       });
 
       const text = response.text || "I'm having trouble thinking right now. Please try again.";
-      
       setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), role: 'model', text }]);
 
     } catch (error: any) {
       console.error("Chat Error:", error);
       
-      let errorMessage = "I'm currently unable to connect. Please check your internet connection or try again later.";
-      
-      // More specific error message for configuration issues
-      if (error.message?.includes("API Key") || error.message?.includes("403")) {
-        errorMessage = "Configuration Error: API Key missing or invalid. Please ensure process.env.API_KEY is set.";
-      }
+      // 5. Graceful Fallback (The "Normal Answer")
+      // Instead of showing technical errors, we show a friendly offline message.
+      const offlineMessage = "I am currently running in offline mode. For specific inquiries, please contact Abhay directly at Abhay242singh@gmail.com.";
 
       setMessages(prev => [...prev, { 
         id: (Date.now() + 1).toString(), 
         role: 'model', 
-        text: errorMessage
+        text: offlineMessage
       }]);
       
-      // Reset session on error to force reconnection/re-initialization
+      // Reset session to allow retry later if connectivity returns
       chatSessionRef.current = null;
     } finally {
       setIsLoading(false);
@@ -98,9 +109,9 @@ const ChatWidget: React.FC = () => {
         <div className="fixed bottom-6 right-6 w-[90vw] sm:w-[350px] md:w-[400px] h-[500px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 z-50 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-10 duration-300 transition-colors">
           
           {/* Header */}
-          <div className="bg-primary p-4 flex justify-between items-center text-white shadow-md">
+          <div className="bg-gradient-to-r from-primary to-blue-600 p-4 flex justify-between items-center text-white shadow-md">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-white/20 rounded-full">
+              <div className="p-2 bg-white/20 rounded-full backdrop-blur-sm">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
