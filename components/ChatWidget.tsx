@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI, Chat } from "@google/genai";
@@ -36,26 +35,21 @@ const ChatWidget: React.FC = () => {
     setInputText('');
     setIsLoading(true);
 
+    // Define the offline/fallback message
+    const offlineMessageText = "I am currently offline. Please contact Abhay directly at Abhay242singh@gmail.com.";
+
     try {
-      // 1. Safely retrieve API Key
-      let apiKey = "";
-      try {
-        // Attempt to get the key from process.env if available
-        apiKey = process.env.API_KEY || "";
-      } catch (e) {
-        // Ignore ReferenceError if process is not defined in the browser
+      // 1. Check for API Key explicitly
+      // If the key is missing from the environment, we gracefully fallback immediately.
+      if (!process.env.API_KEY) {
+        // Simulate a brief "thinking" delay for better UX
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        throw new Error("Missing API Key"); // Throw to catch block to render offline message
       }
 
-      // 2. Check if key exists. If not, trigger the fallback mechanism immediately.
-      if (!apiKey) {
-        // Simulate a short delay for realism before showing the offline message
-        await new Promise(resolve => setTimeout(resolve, 800));
-        throw new Error("OFFLINE_MODE");
-      }
-
-      // 3. Initialize Gemini Client if not ready
+      // 2. Initialize Gemini Client if not ready
       if (!chatSessionRef.current) {
-        const ai = new GoogleGenAI({ apiKey });
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         
         chatSessionRef.current = ai.chats.create({
           model: 'gemini-2.5-flash',
@@ -65,7 +59,7 @@ const ChatWidget: React.FC = () => {
         });
       }
       
-      // 4. Send Message
+      // 3. Send Message
       const response = await chatSessionRef.current.sendMessage({
         message: userMessage.text
       });
@@ -74,19 +68,16 @@ const ChatWidget: React.FC = () => {
       setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), role: 'model', text }]);
 
     } catch (error: any) {
-      console.error("Chat Error:", error);
+      console.error("Chat Widget Error:", error);
       
-      // 5. Graceful Fallback (The "Normal Answer")
-      // Instead of showing technical errors, we show a friendly offline message.
-      const offlineMessage = "I am currently running in offline mode. For specific inquiries, please contact Abhay directly at Abhay242singh@gmail.com.";
-
+      // 4. Render the friendly offline message for ANY error (network, api key, quota, etc.)
       setMessages(prev => [...prev, { 
         id: (Date.now() + 1).toString(), 
         role: 'model', 
-        text: offlineMessage
+        text: offlineMessageText
       }]);
       
-      // Reset session to allow retry later if connectivity returns
+      // Reset session to allow retry later
       chatSessionRef.current = null;
     } finally {
       setIsLoading(false);
@@ -187,4 +178,3 @@ const ChatWidget: React.FC = () => {
 };
 
 export default ChatWidget;
-
