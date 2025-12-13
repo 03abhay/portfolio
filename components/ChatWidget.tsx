@@ -187,3 +187,4 @@ const ChatWidget: React.FC = () => {
 };
 
 export default ChatWidget;
+
