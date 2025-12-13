@@ -28,6 +28,7 @@ Experience:
 3. Data Science Job Simulation at BCG (May 2025): End-to-end data analysis, regression/classification models, interactive dashboards.
 
 Projects:
+- ASTRaL Defense Logistics Intelligence: (Current) Developing an autonomous logistics optimization engine using Python, NetworkX, and Reinforcement Learning for secure route planning and predictive supply chain resilience.
 - InvestIQ: Stock Market Analysis (Python, Streamlit, yfinance). Regression models for price forecasts.
 - Environmental Monitoring Dashboard: Real-time monitoring using Prophet for air quality/rainfall forecasting.
 - Twitter Data Analysis: Sentiment classification and trend analysis using Power BI & Excel.
@@ -52,5 +53,5 @@ Your goal is to answer visitor questions about Abhay's professional background, 
 - Keep answers under 3-4 sentences unless asked for details.
 `;
 
-// Updated with user provided Discord CDN link
+// Updated with user provided GitHub Raw Link
 export const PROFILE_IMAGE_URL = "https://raw.githubusercontent.com/03abhay/portfolio/refs/heads/main/abhay.png";
