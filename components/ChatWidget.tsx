@@ -63,13 +63,22 @@ const ChatWidget: React.FC = () => {
       
       setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), role: 'model', text }]);
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Chat Error:", error);
+      
+      let errorMessage = "I'm currently unable to connect. Please check your internet connection or try again later.";
+      
+      // More specific error message for configuration issues
+      if (error.message?.includes("API Key") || error.message?.includes("403")) {
+        errorMessage = "My API key is missing or invalid in the website configuration. Please contact the administrator.";
+      }
+
       setMessages(prev => [...prev, { 
         id: (Date.now() + 1).toString(), 
         role: 'model', 
-        text: "I'm currently unable to connect. Please check your internet connection or try again later." 
+        text: errorMessage
       }]);
+      
       // Reset session on error to force reconnection/re-initialization
       chatSessionRef.current = null;
     } finally {
@@ -171,3 +180,4 @@ const ChatWidget: React.FC = () => {
 };
 
 export default ChatWidget;
+
