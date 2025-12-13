@@ -17,25 +17,29 @@ const projects: Project[] = [
     title: "InvestIQ – Stock Market Analysis",
     tech: ["Python", "Streamlit", "yfinance", "Scikit-learn"],
     description: "Built regression models for stock price forecasts, implemented time-series analysis, and predictive analytics within an interactive dashboard.",
-    icon: "TrendingUp"
+    icon: "TrendingUp",
+    link: "https://investiq-9.streamlit.app/"
   },
   {
     title: "Environmental Monitoring",
     tech: ["Python", "Prophet", "Streamlit"],
     description: "Developed real-time monitoring and forecasting solutions. Visualized air quality, temperature, and rainfall metrics.",
-    icon: "CloudRain"
+    icon: "CloudRain",
+    link: "https://envirotrack.streamlit.app/"
   },
   {
     title: "Twitter Data Analysis",
     tech: ["Power BI", "Excel", "NLP"],
     description: "Applied NLP techniques for sentiment classification, performed time-series trend analysis, and delivered actionable insights.",
-    icon: "Twitter"
+    icon: "Twitter",
+    link: "https://github.com/03abhay/Twitter-Data-Analysis"
   },
   {
     title: "EDA Studio",
     tech: ["Streamlit", "Python", "NLP"],
     description: "Interactive EDA tool. Applied NLP for sentiment classification and time-series trend analysis on custom datasets.",
-    icon: "Search"
+    icon: "Search",
+    link: "https://edastudio.streamlit.app/"
   }
 ];
 
@@ -116,7 +120,11 @@ const Projects: React.FC = () => {
                         rel="noreferrer"
                         className="inline-flex items-center text-sm font-medium text-primary hover:text-blue-700 transition-colors mt-2"
                       >
-                        <Github className="w-4 h-4 mr-2" /> View Code
+                        {project.link.includes('github.com') ? (
+                          <><Github className="w-4 h-4 mr-2" /> View Code</>
+                        ) : (
+                          <><ExternalLink className="w-4 h-4 mr-2" /> Live Demo</>
+                        )}
                       </a>
                     )}
                   </div>
@@ -131,3 +139,4 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
+
