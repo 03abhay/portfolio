@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   icon: string;
   link?: string;
+  isCurrent?: boolean;
 }
 
 export interface Experience {
