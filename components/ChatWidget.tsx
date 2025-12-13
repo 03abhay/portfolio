@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI, Chat } from "@google/genai";
@@ -27,29 +26,6 @@ const ChatWidget: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isOpen]);
 
-  // Helper to safely get the API key from various environment configurations
-  const getApiKey = (): string | undefined => {
-    // 1. Check process.env (Standard Node/Webpack/CRA)
-    if (typeof process !== 'undefined' && process.env) {
-      if (process.env.API_KEY) return process.env.API_KEY;
-      if (process.env.REACT_APP_API_KEY) return process.env.REACT_APP_API_KEY;
-      if (process.env.NEXT_PUBLIC_API_KEY) return process.env.NEXT_PUBLIC_API_KEY;
-    }
-    
-    // 2. Check Vite (import.meta.env)
-    try {
-      // @ts-ignore - Handles Vite environments where process might be missing
-      const meta = (import.meta as any);
-      if (meta && meta.env && meta.env.VITE_API_KEY) {
-        return meta.env.VITE_API_KEY;
-      }
-    } catch (e) {
-      // Ignore if import.meta is not supported
-    }
-    
-    return undefined;
-  };
-
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim() || isLoading) return;
@@ -62,13 +38,9 @@ const ChatWidget: React.FC = () => {
     try {
       // Initialize Gemini Client and Chat Session if not already initialized
       if (!chatSessionRef.current) {
-        const apiKey = getApiKey();
-        
-        if (!apiKey) {
-          throw new Error("API Key not found in environment variables (checked API_KEY, REACT_APP_API_KEY, VITE_API_KEY).");
-        }
-
-        const ai = new GoogleGenAI({ apiKey });
+        // @google/genai coding guidelines: API key must be obtained exclusively from process.env.API_KEY
+        // We assume process.env.API_KEY is available and valid as per guidelines.
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         
         chatSessionRef.current = ai.chats.create({
           model: 'gemini-2.5-flash',
@@ -94,7 +66,7 @@ const ChatWidget: React.FC = () => {
       
       // More specific error message for configuration issues
       if (error.message?.includes("API Key") || error.message?.includes("403")) {
-        errorMessage = "Configuration Error: The AI API key is missing. In Vercel Settings, please add 'REACT_APP_API_KEY' or 'VITE_API_KEY' with your Google Gemini Key.";
+        errorMessage = "Configuration Error: API Key missing or invalid. Please ensure process.env.API_KEY is set.";
       }
 
       setMessages(prev => [...prev, { 
@@ -204,4 +176,3 @@ const ChatWidget: React.FC = () => {
 };
 
 export default ChatWidget;
-
