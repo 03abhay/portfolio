@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -17,7 +18,7 @@ const Footer: React.FC = () => {
               <a href="https://github.com/03abhay" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-slate-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/abhaysingh212003/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#0077b5]/30">
+              <a href="https://www.linkedin.com/in/abhay03singh" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#0077b5]/30">
                 <Linkedin className="w-5 h-5" />
               </a>
               <a href="mailto:Abhay242singh@gmail.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-red-500 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-red-500/30">
