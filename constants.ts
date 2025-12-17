@@ -4,7 +4,7 @@ Name: Abhay Singh
 Role: Data Scientist & Machine Learning Engineer
 Location: Mukerian, India
 Contact: 7658870955, Abhay242singh@gmail.com
-LinkedIn: linkedin.com/in/abhaysingh212003
+LinkedIn: www.linkedin.com/in/abhay03singh
 GitHub: github.com/03abhay
 
 Summary:
@@ -53,5 +53,4 @@ Your goal is to answer visitor questions about Abhay's professional background, 
 - Keep answers under 3-4 sentences unless asked for details.
 `;
 
-// Updated with user provided GitHub Raw Link
 export const PROFILE_IMAGE_URL = "https://raw.githubusercontent.com/03abhay/portfolio/refs/heads/main/abhay.png";
