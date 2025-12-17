@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Moon, Sun } from 'lucide-react';
 
@@ -52,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
              <a href="https://github.com/03abhay" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:scale-110">
                 <Github size={20} />
              </a>
-             <a href="www.linkedin.com/in/abhay03singh" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0077b5] transition-all duration-300 hover:scale-110">
+             <a href="https://www.linkedin.com/in/abhay03singh" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0077b5] transition-all duration-300 hover:scale-110">
                 <Linkedin size={20} />
              </a>
              <a href="mailto:Abhay242singh@gmail.com" className="text-slate-400 hover:text-red-500 transition-all duration-300 hover:scale-110">
