@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Project } from '../types';
+import { motion } from 'framer-motion';
 import { TrendingUp, CloudRain, Twitter, Search, ExternalLink, Shield, Github, Sparkles } from 'lucide-react';
 import { Reveal } from './Reveal';
 
@@ -43,18 +44,22 @@ const projects: Project[] = [
   }
 ];
 
-const IconMap: Record<string, React.ReactNode> = {
-  TrendingUp: <TrendingUp className="w-6 h-6" />,
-  CloudRain: <CloudRain className="w-6 h-6" />,
-  Twitter: <Twitter className="w-6 h-6" />,
-  Search: <Search className="w-6 h-6" />,
-  Shield: <Shield className="w-6 h-6" />
+const IconMap: Record<string, { icon: React.ReactNode, color: string }> = {
+  TrendingUp: { icon: <TrendingUp className="w-6 h-6" />, color: "text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 group-hover:bg-emerald-500" },
+  CloudRain: { icon: <CloudRain className="w-6 h-6" />, color: "text-blue-500 bg-blue-50 dark:bg-blue-900/20 group-hover:bg-blue-500" },
+  Twitter: { icon: <Twitter className="w-6 h-6" />, color: "text-sky-500 bg-sky-50 dark:bg-sky-900/20 group-hover:bg-sky-500" },
+  Search: { icon: <Search className="w-6 h-6" />, color: "text-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 group-hover:bg-indigo-500" },
+  Shield: { icon: <Shield className="w-6 h-6" />, color: "text-amber-500 bg-amber-50 dark:bg-amber-900/20 group-hover:bg-amber-500" }
 };
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
+      {/* Background Vibrance */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Reveal>
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
@@ -66,17 +71,18 @@ const Projects: React.FC = () => {
             </a>
           </div>
         </Reveal>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <Reveal key={idx} delay={idx * 100} className={`${idx === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
-              <div 
-                className={`rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border 
+              <motion.div 
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className={`rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border h-full relative flex flex-col
                   ${project.isCurrent 
                     ? 'bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-slate-800/60 border-primary/40 dark:border-primary/40 ring-2 ring-primary/10' 
                     : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800'
                   } 
-                  group h-full hover:-translate-y-2 hover:border-primary/30 relative flex flex-col`}
+                  group hover:border-primary/20`}
               >
                 
                 {/* Current Project Badge */}
@@ -90,8 +96,8 @@ const Projects: React.FC = () => {
 
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-6">
-                    <div className={`p-3 rounded-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-sm group-hover:shadow-md ${project.isCurrent ? 'bg-primary text-white shadow-primary/30' : 'bg-blue-50 dark:bg-slate-800 text-primary group-hover:bg-primary group-hover:text-white'}`}>
-                      {IconMap[project.icon]}
+                    <div className={`p-3 rounded-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm group-hover:shadow-md group-hover:text-white ${IconMap[project.icon].color}`}>
+                      {IconMap[project.icon].icon}
                     </div>
                   </div>
                   
@@ -129,7 +135,7 @@ const Projects: React.FC = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </Reveal>
           ))}
         </div>
@@ -139,4 +145,3 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
-
