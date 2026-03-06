@@ -1,115 +1,316 @@
 import React from 'react';
-import { ArrowRight, Download, Mail } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Sparkles, TrendingUp, Database, Brain, Code2, Terminal, BarChart3, Zap, Cloud, Server, Shield } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { PROFILE_IMAGE_URL } from '../constants';
 
 const Hero: React.FC = () => {
-  return (
-    <section id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden min-h-[90vh] flex items-center transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-        
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 -mt-20 w-72 h-72 bg-blue-400 rounded-full opacity-10 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 -mb-20 w-96 h-96 bg-purple-400 rounded-full opacity-10 blur-3xl"></div>
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+  return (
+    <section id="home" className="relative pt-32 pb-16 md:pt-48 md:pb-32 bg-white dark:bg-slate-950 overflow-hidden flex items-center min-h-[95vh]">
+      {/* Sophisticated background pattern */}
+      <motion.div 
+        style={{ y: y1, opacity, backgroundImage: 'radial-gradient(#2563eb 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" 
+      />
+      
+      {/* Animated Background Blobs */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+          x: [0, 20, 0],
+          y: [0, -20, 0]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[100px]"
+      />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.4, 0.3],
+          x: [0, -30, 0],
+          y: [0, 30, 0]
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-600/5 rounded-full blur-[100px]"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* Left Column: Text */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+          {/* Text Content */}
+          <motion.div 
+            style={{ y: y2 }}
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
+          >
             <Reveal delay={100} width="fit-content">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium mb-8 animate-fade-in-up transition-colors hover:scale-105 duration-300 cursor-default">
-                <span className="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2 animate-pulse"></span>
-                Available for Hire
-              </div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-100 dark:border-blue-800/50 cursor-default"
+              >
+                <Sparkles className="w-3 h-3 mr-2" />
+                Creative Data Intelligence
+              </motion.div>
             </Reveal>
             
             <Reveal delay={200}>
-              <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-6 transition-colors">
-                Hi, I'm <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 hover:text-blue-700 transition-colors duration-300 cursor-default">Abhay Singh</span>
-                <span className="block text-2xl md:text-4xl text-slate-500 dark:text-slate-400 font-semibold mt-4 transition-colors">
-                  Data Scientist & ML Engineer
-                </span>
+              <h1 className="text-6xl md:text-8xl font-display font-extrabold text-slate-950 dark:text-white leading-[1.1] mb-8 tracking-tight">
+                Engineering <br />
+                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">Intelligence & Insights.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={300}>
-              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-10 transition-colors">
-                Transforming complex data into actionable insights using Python, Machine Learning, and Interactive Visualizations. 
-                Bridging the gap between raw numbers and business strategy.
+              <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-12 font-light">
+                Hi, I'm <span className="font-semibold text-slate-900 dark:text-white">Abhay Singh</span>. 
+                A Data Scientist & ML Engineer specializing in <span className="text-primary font-medium">GenAI</span> and predictive analytics to build the future of data-driven intelligence.
               </p>
             </Reveal>
 
             <Reveal delay={400}>
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                <a 
+              <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
+                <motion.a 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href="#projects"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-white font-semibold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 hover:scale-105 active:scale-95"
+                  className="group w-full sm:w-auto px-10 py-5 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-semibold transition-all duration-300 flex items-center justify-center shadow-xl shadow-slate-200 dark:shadow-none"
                 >
                   View Work <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a 
-                  href="#contact"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-300 flex items-center justify-center hover:shadow-md transform hover:-translate-y-1 hover:scale-105 active:scale-95"
+                </motion.a>
+                <motion.a 
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(0,0,0,0.02)" }}
+                  whileTap={{ scale: 0.98 }}
+                  href="#about"
+                  className="w-full sm:w-auto px-10 py-5 rounded-full bg-transparent text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold transition-all duration-300 flex items-center justify-center"
                 >
-                  Contact Me
-                </a>
+                  About Me
+                </motion.a>
               </div>
             </Reveal>
+          </motion.div>
 
-            {/* Stats / Highlights Row */}
-            <Reveal delay={600} width="100%">
-              <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 mt-10 border-t border-slate-200/60 dark:border-slate-800 transition-colors">
-                {[
-                  { label: "Major Projects", value: "5+" },
-                  { label: "Graduated", value: "2025" },
-                  { label: "NCC Grade", value: "A" },
-                  { label: "Reality Show", value: "Finalist" }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center lg:text-left group hover:-translate-y-1 transition-transform duration-300 cursor-default">
-                    <p className="text-2xl font-bold text-slate-900 dark:text-white transition-colors group-hover:text-primary">{stat.value}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-1 transition-colors">{stat.label}</p>
+          {/* Profile Image Column */}
+          <motion.div 
+            style={{ y: y1 }}
+            className="lg:col-span-5 flex justify-center relative"
+          >
+            <Reveal delay={500} width="fit-content" className="relative group">
+              {/* Abstract decorative elements */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-8 bg-gradient-to-tr from-blue-200 to-indigo-200 dark:from-blue-900/10 dark:to-indigo-900/10 rounded-[4rem] blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-700"
+              ></motion.div>
+              
+              {/* Floating decorative cards - Distributed on both sides */}
+              <motion.div
+                animate={{ y: [0, -15, 0], x: [0, -10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-12 -left-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                    <Sparkles className="w-5 h-5" />
                   </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right Column: Image */}
-          <Reveal delay={300} className="mt-12 lg:mt-0 order-1 lg:order-2 flex justify-center">
-             <div className="relative flex justify-center items-center">
-                {/* Decorative Blob */}
-                <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 dark:from-blue-900 dark:to-purple-900 rounded-full mix-blend-multiply dark:mix-blend-overlay filter blur-3xl opacity-30 animate-blob"></div>
-                
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 rounded-[2rem] rotate-6 opacity-20 blur-lg transition-all duration-500 group-hover:rotate-12"></div>
-                  <img 
-                    src={PROFILE_IMAGE_URL} 
-                    alt="Abhay Singh" 
-                    className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white dark:border-slate-800 transform transition-all duration-500 hover:scale-[1.02] hover:-rotate-2 hover:shadow-primary/20 z-10"
-                    onError={(e) => {
-                      // Fallback if image fails
-                      e.currentTarget.src = "https://ui-avatars.com/api/?name=Abhay+Singh&background=0D8ABC&color=fff&size=512";
-                    }}
-                  />
-                  
-                  {/* Floating Interactive Badge */}
-                  <a 
-                    href="mailto:Abhay242singh@gmail.com?subject=Resume Request"
-                    className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 animate-bounce-slow z-20 cursor-pointer hover:scale-105 hover:shadow-2xl hover:border-blue-200 transition-all duration-300 group"
-                  >
-                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-full group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
-                           <Mail className="w-5 h-5 text-green-600 dark:text-green-400" />
-                        </div>
-                        <div>
-                           <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Request</p>
-                           <p className="text-sm font-bold text-slate-900 dark:text-white">Resume</p>
-                        </div>
-                     </div>
-                  </a>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Innovation</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-white">AI Powered</p>
+                  </div>
                 </div>
-             </div>
-          </Reveal>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0], x: [0, 10, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -top-12 -right-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Growth</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-white">Data Driven</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -20, 0], x: [0, 15, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-1/2 -left-20 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
+                    <Brain className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Precision</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-white">ML Models</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className="absolute top-[35%] -right-20 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500">
+                    <Shield className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Strategy</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-white">Agile Flow</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -10, 0], x: [0, 20, 0] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute bottom-0 -left-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-500">
+                    <BarChart3 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Analytics</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-white">Visual Story</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* New Floating Logs/Badges - Distributed on both sides */}
+              <motion.div
+                animate={{ y: [0, -20, 0], x: [0, 5, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                className="absolute top-[25%] -left-16 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <Database className="w-4 h-4 text-blue-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">SQL</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 20, 0], x: [0, -5, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                className="absolute top-[55%] -right-16 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <Brain className="w-4 h-4 text-purple-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">MLOps</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -15, 0], x: [0, -15, 0] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                className="absolute bottom-[25%] -left-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <Code2 className="w-4 h-4 text-emerald-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Python</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0], x: [0, 15, 0] }}
+                transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                className="absolute top-[40%] -right-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-rose-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Power BI</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -10, 0], x: [0, -10, 0] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.0 }}
+                className="absolute bottom-[40%] -left-20 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-amber-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">PyTorch</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 12, 0], x: [0, 8, 0] }}
+                transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+                className="absolute bottom-[10%] -right-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <div className="flex items-center gap-2">
+                  <Cloud className="w-4 h-4 text-sky-400" />
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Cloud</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -12, 0], x: [0, -12, 0], rotate: [0, -10, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                className="absolute top-[20%] -left-24 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <Server className="w-4 h-4 text-slate-400" />
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0], x: [0, 10, 0], rotate: [0, 10, 0] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+                className="absolute bottom-[30%] -right-24 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+              >
+                <Code2 className="w-4 h-4 text-blue-400" />
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 10, 0], x: [0, -10, 0] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className="absolute top-10 right-1/2 glass p-2 rounded-lg shadow-md z-20 hidden lg:block border border-white/10 dark:border-slate-800/30"
+              >
+                <Terminal className="w-4 h-4 text-amber-400" />
+              </motion.div>
+              
+              <motion.div 
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [-1, 1, -1]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-8 border-white dark:border-slate-900 shadow-2xl transform lg:-rotate-3 group-hover:rotate-0 transition-transform duration-700"
+              >
+                <img 
+                  src={PROFILE_IMAGE_URL} 
+                  alt="Abhay Singh" 
+                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://ui-avatars.com/api/?name=Abhay+Singh&background=0D8ABC&color=fff&size=512";
+                  }}
+                />
+              </motion.div>
+              
+              {/* Mini Status Badge */}
+              <motion.div 
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1, duration: 0.5 }}
+                className="absolute -bottom-6 -left-10 glass border border-slate-200/50 dark:border-slate-700/50 px-6 py-4 rounded-2xl shadow-xl z-20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-bold tracking-tight text-slate-800 dark:text-slate-100">Ready to Collaborate</span>
+                </div>
+              </motion.div>
+            </Reveal>
+          </motion.div>
         </div>
       </div>
     </section>
