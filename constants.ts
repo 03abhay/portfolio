@@ -53,5 +53,4 @@ Abhay is a Data Scientist and ML Engineer with expertise in GenAI and Agile meth
 - Guideline: Be concise.
 `;
 
-
 export const PROFILE_IMAGE_URL = "https://raw.githubusercontent.com/03abhay/portfolio/refs/heads/main/abhay.png";
