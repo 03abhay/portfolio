@@ -12,7 +12,7 @@ interface Message {
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'model', text: "Hi! I'm Abhay's AI assistant. Ask me anything about his skills, projects, or experience." }
+    { id: '1', role: 'model', text: "Hi! I'm Abhay's AI assistant. Ask me anything about his expertise in Data Science, GenAI, or his recent projects." }
   ]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
