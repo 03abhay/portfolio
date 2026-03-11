@@ -60,15 +60,15 @@ const Hero: React.FC = () => {
             
             <Reveal delay={200}>
               <h1 className="text-6xl md:text-8xl font-display font-extrabold text-slate-950 dark:text-white leading-[1.1] mb-8 tracking-tight">
-                Engineering <br />
-                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">Intelligence & Insights.</span>
+                Business Analyst & <br />
+                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">Data Intelligence.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={300}>
               <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-12 font-light">
                 Hi, I'm <span className="font-semibold text-slate-900 dark:text-white">Abhay Singh</span>. 
-                A Data Scientist & ML Engineer specializing in <span className="text-primary font-medium">GenAI</span> and predictive analytics to build the future of data-driven intelligence.
+                A <span className="text-primary font-medium">Business Analyst</span> & <span className="text-primary font-medium">AI Trainer</span> specializing in GenAI, process optimization, and data-driven strategy to drive operational excellence.
               </p>
             </Reveal>
 
@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -15, 0], x: [0, -10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-12 -left-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+                className="absolute -top-28 -left-48 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 15, 0], x: [0, 10, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-12 -right-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+                className="absolute -top-28 -right-48 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -20, 0], x: [0, 15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/2 -left-20 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+                className="absolute top-[35%] -left-64 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute top-[35%] -right-20 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+                className="absolute top-[35%] -right-64 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500">
@@ -175,7 +175,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -10, 0], x: [0, 20, 0] }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute bottom-0 -left-12 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
+                className="absolute top-[5%] -left-64 glass p-4 rounded-2xl shadow-xl z-20 hidden md:block border border-white/20 dark:border-slate-800/50 min-w-[160px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-500">
@@ -192,7 +192,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -20, 0], x: [0, 5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                className="absolute top-[25%] -left-16 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute top-[5%] -left-24 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <Database className="w-4 h-4 text-blue-400" />
@@ -203,7 +203,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 20, 0], x: [0, -5, 0] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="absolute top-[55%] -right-16 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute top-[5%] -right-24 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <Brain className="w-4 h-4 text-purple-400" />
@@ -214,7 +214,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -15, 0], x: [0, -15, 0] }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-                className="absolute bottom-[25%] -left-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute bottom-[5%] -left-24 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <Code2 className="w-4 h-4 text-emerald-400" />
@@ -225,7 +225,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 15, 0], x: [0, 15, 0] }}
                 transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                className="absolute top-[40%] -right-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute bottom-[5%] -right-24 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <BarChart3 className="w-4 h-4 text-rose-400" />
@@ -236,7 +236,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -10, 0], x: [0, -10, 0] }}
                 transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.0 }}
-                className="absolute bottom-[40%] -left-20 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute top-[25%] -left-36 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-400" />
@@ -247,7 +247,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 12, 0], x: [0, 8, 0] }}
                 transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-                className="absolute bottom-[10%] -right-12 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute top-[25%] -right-36 glass p-3 rounded-xl shadow-lg z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <div className="flex items-center gap-2">
                   <Cloud className="w-4 h-4 text-sky-400" />
@@ -258,7 +258,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -12, 0], x: [0, -12, 0], rotate: [0, -10, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                className="absolute top-[20%] -left-24 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute bottom-[25%] -left-36 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <Server className="w-4 h-4 text-slate-400" />
               </motion.div>
@@ -266,7 +266,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 15, 0], x: [0, 10, 0], rotate: [0, 10, 0] }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-                className="absolute bottom-[30%] -right-24 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
+                className="absolute bottom-[25%] -right-36 glass p-2 rounded-lg shadow-md z-20 hidden md:block border border-white/10 dark:border-slate-800/30"
               >
                 <Code2 className="w-4 h-4 text-blue-400" />
               </motion.div>
@@ -274,18 +274,23 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 10, 0], x: [0, -10, 0] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute top-10 right-1/2 glass p-2 rounded-lg shadow-md z-20 hidden lg:block border border-white/10 dark:border-slate-800/30"
+                className="absolute top-4 -right-16 glass p-2 rounded-lg shadow-md z-20 hidden lg:block border border-white/10 dark:border-slate-800/30"
               >
                 <Terminal className="w-4 h-4 text-amber-400" />
               </motion.div>
               
               <motion.div 
                 animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [-1, 1, -1]
+                  y: [0, -15, 0],
+                  x: [0, 5, 0],
+                  rotate: [-2, 2, -2]
                 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-8 border-white dark:border-slate-900 shadow-2xl transform lg:-rotate-3 group-hover:rotate-0 transition-transform duration-700"
+                transition={{ 
+                  duration: 8, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="relative w-64 h-64 md:w-80 md:h-80 rounded-[3rem] overflow-hidden border-8 border-white dark:border-slate-900 shadow-2xl transform lg:-rotate-3 group-hover:rotate-0 transition-transform duration-700"
               >
                 <img 
                   src={PROFILE_IMAGE_URL} 
