@@ -1,56 +1,56 @@
 
 export const RESUME_DATA = `
 Name: Abhay Singh
-Role: Data Scientist & Machine Learning Engineer
+Role: Data Scientist & ML Engineer
 Location: Mukerian, India
 Contact: 7658870955, Abhay242singh@gmail.com
 LinkedIn: www.linkedin.com/in/abhay03singh
 GitHub: github.com/03abhay
 
 Summary:
-Detail-oriented and analytical Data Scientist skilled in machine learning, statistical analysis, and data-driven problem solving. Hands-on experience in Python, scikit-learn, and data visualization tools. Adept at building predictive models, extracting insights from large datasets, and developing interactive solutions. Passionate about advanced analytics.
+Detail-oriented and analytical Data Scientist skilled in machine learning, statistical analysis, and data-driven problem solving. Adept at building predictive models, extracting insights from large datasets, and developing interactive solutions to real-world challenges. Passionate about applying advanced analytics and GenAI to optimize business outcomes.
 
 Education:
 - B.Tech in Computer Science & Engineering, D.A.V. University, Jalandhar (2021-2025)
 
 Skills:
-- Machine Learning: Supervised/Unsupervised learning, Regression, Classification, Clustering, Scikit-learn, Prophet.
-- Statistics: Hypothesis testing, data distributions.
+- Core DS/ML: Supervised/Unsupervised learning, Regression, Classification, Clustering, Scikit-learn, Prophet, GenAI.
 - Programming: Python (Pandas, NumPy, Streamlit), SQL.
 - Visualization: Power BI, Matplotlib, Seaborn, Plotly.
 - Data Engineering: ETL, Cleaning, Feature Engineering.
-- Cloud Platforms: Google Cloud (Intermediate), Azure (Basic).
-- Tools: MS Office, yfinance, Tkinter, Pygame, Git.
+- Management: Agile Project Management (Scrum, Kanban).
+- Tools: Git, MS Office, yfinance, Streamlit, NetworkX, Google Cloud, Azure.
 
 Experience:
-1. Data Science & Machine Learning Trainee at O7 Services (Jun-Jul 2024): Built and evaluated predictive models, performed EDA.
-2. Data Analyst at Nullclass (Jan-Feb 2025): Remote Internship. Conducted data manipulation, trend analysis using Python & Power BI.
-3. Data Science Job Simulation at BCG (May 2025): End-to-end data analysis, regression/classification models, interactive dashboards.
+1. GenAI Powered Data Analytics Job Simulation at Tata (Jun 2025 - Mar 2026): Tasks included EDA, risk profiling, predicting delinquency with AI, and AI-driven collections strategy.
+2. Data Science Job Simulation at BCG (May 2025): Completed end-to-end data analysis and machine learning simulation projects.
+3. Data Analyst Intern at Nullclass Edutech (Jan - Feb 2025): Conducted extensive data manipulation, trend analysis, and reporting using Python and Power BI.
+4. Data Science & Machine Learning Trainee at O7 Services (Jun - Jul 2024): Worked on real-world datasets to build and evaluate predictive models.
 
 Projects:
-- ASTRaL Defense Logistics Intelligence: (Current) Developing an autonomous logistics optimization engine using Python, NetworkX, and Reinforcement Learning for secure route planning and predictive supply chain resilience.
-- InvestIQ: Stock Market Analysis (Python, Streamlit, yfinance). Regression models for price forecasts.
-- Environmental Monitoring Dashboard: Real-time monitoring using Prophet for air quality/rainfall forecasting.
-- Twitter Data Analysis: Sentiment classification and trend analysis using Power BI & Excel.
-- EDA Studio: NLP techniques for sentiment classification and time-series analysis (Streamlit).
+- ASTRaL Defense Logistics: Autonomous logistics optimization using RL and Graph Theory.
+- InvestIQ: Stock market analysis and predictive forecasting platform.
+- Environmental Monitoring: Real-time air quality tracking using time-series analysis.
+- EDA Studio: Comprehensive NLP and Data exploration workbench.
+- Twitter Data Analysis: Sentiment and trend analysis using NLP and Power BI.
 
 Certifications:
-- Google Analytics Certification
-- Power BI
-- Data Analytics (ICT Academy by INFOSIS)
+- Agile Project Management (HP LIFE)
+- GenAI Powered Data Analytics (Tata)
+- Google Analytics Certificate
+- Data Analytics Training Certificate (ICT Academy by Infosys)
 
-Fun Facts/Co-Curricular:
+Fun Facts:
 - NCC 'C' Certificate (Grade A)
-- Finalist, DD Punjabi TV Reality Show Season 5 (Painting) - Artistic and creative side.
+- National-level TV Reality Show Finalist (Painting) - fuels my creative engineering approach.
 `;
 
 export const SYSTEM_INSTRUCTION = `
-You are an AI Assistant living on Abhay Singh's portfolio website. 
-Your goal is to answer visitor questions about Abhay's professional background, skills, and projects based strictly on the provided resume data.
-- Tone: Professional, enthusiastic, concise, and slightly witty.
-- If asked about contact info, provide the email.
-- Highlight his unique mix of technical data science skills and creative artistic ability (painting finalist).
-- Keep answers under 3-4 sentences unless asked for details.
+You are an expert AI concierge for Abhay Singh's portfolio.
+Abhay is a Data Scientist and ML Engineer with expertise in GenAI and Agile methodologies.
+- Tone: Sophisticated, articulate, and welcoming.
+- Focus: Highlight the synergy between his data science precision, GenAI expertise, and his creative artistic background.
+- Guideline: Be concise.
 `;
 
 export const PROFILE_IMAGE_URL = "https://raw.githubusercontent.com/03abhay/portfolio/refs/heads/main/abhay.png";
