@@ -23,14 +23,13 @@ const About: React.FC = () => {
             <Reveal delay={200}>
               <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
                 <p>
-                  As a Data Scientist and B.Tech graduate (2025), my journey has been defined by a simple realization: 
-                  <span className="text-slate-900 dark:text-slate-200 font-medium italic"> data is merely raw material until it's shaped with purpose.</span>
+                  As a <span className="text-slate-900 dark:text-slate-200 font-bold">Business Analyst</span> and <span className="text-slate-900 dark:text-slate-200 font-bold">Data Scientist</span>, my journey is defined by translating complex datasets into actionable business insights.
                 </p>
                 <p>
-                  I specialize in <span className="text-slate-900 dark:text-slate-200 font-bold">GenAI Powered Data Analytics</span> and <span className="text-slate-900 dark:text-slate-200 font-bold">Agile Project Management</span>, bridging the gap between complex data architectures and business strategy.
+                  I specialize in <span className="text-slate-900 dark:text-slate-200 font-bold">Process Optimization</span> and <span className="text-slate-900 dark:text-slate-200 font-bold">AI Training</span>, bridging the gap between technical depth and business acumen to support data-informed decision-making.
                 </p>
                 <p>
-                  With a background as a national television painting finalist, I bring a unique visual intuition to data storytelling and machine learning interface design, ensuring every insight is as clear as it is powerful.
+                  With a background as a national television painting finalist and NCC Grade A holder, I bring a unique blend of <span className="text-slate-900 dark:text-slate-200 font-medium italic">creative problem-solving, discipline, and visual intuition</span> to data storytelling and analytical frameworks.
                 </p>
               </div>
             </Reveal>
@@ -58,29 +57,29 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <AboutCard 
               icon={<Database className="w-6 h-6" />}
-              title="Data Science"
-              desc="Building robust pipelines and predictive models that drive decision making."
+              title="Business Analytics"
+              desc="Translating complex data into actionable insights and KPI tracking for stakeholders."
               delay={400}
               color="blue"
             />
             <AboutCard 
               icon={<Code2 className="w-6 h-6" />}
-              title="GenAI & ML"
-              desc="Implementing cutting-edge AI solutions and GenAI powered analytics."
+              title="AI & Automation"
+              desc="Designing automated insight workflows and evaluating LLM performance (Prompt Engineering)."
               delay={500}
               color="emerald"
             />
             <AboutCard 
               icon={<Shield className="w-6 h-6" />}
-              title="Agile Management"
-              desc="Certified Agile Project Manager with experience in Scrum and Kanban workflows."
+              title="Process Optimization"
+              desc="Identifying operational inefficiencies and designing analytical frameworks for excellence."
               delay={600}
               color="amber"
             />
             <AboutCard 
               icon={<Palette className="w-6 h-6" />}
-              title="Artistic Vision"
-              desc="TV reality show finalist, bringing painterly intuition to data visualization."
+              title="Data Storytelling"
+              desc="Combining artistic intuition with technical depth to deliver clear, powerful visual reports."
               delay={700}
               color="rose"
             />
