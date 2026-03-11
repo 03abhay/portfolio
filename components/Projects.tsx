@@ -2,36 +2,43 @@
 import React from 'react';
 import { Project } from '../types';
 import { motion } from 'framer-motion';
-import { TrendingUp, CloudRain, Twitter, Search, ExternalLink, Shield, Github, Sparkles } from 'lucide-react';
+import { TrendingUp, CloudRain, Twitter, Search, ExternalLink, Shield, Github, Sparkles, Video } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const projects: Project[] = [
   {
-    title: "ASTRaL Defense Logistics Intelligence",
-    tech: ["Python", "NetworkX", "Reinforcement Learning", "Geospatial Analytics"],
-    description: "Developing an autonomous logistics optimization engine for defense sectors. Utilizing graph algorithms for secure route planning and predictive supply chain resilience.",
-    icon: "Shield",
-    link: "https://github.com/03abhay/ASTRaL-Defense-Logistics-Intelligence",
+    title: "YouTube Automation Pipeline",
+    tech: ["n8n", "Ollama/llama3", "Qdrant", "ffmpeg", "Python"],
+    description: "Architected a four-stage AI pipeline for daily video scripting, TTS voice generation, stock footage assembly, and automated YouTube upload. Demonstrates deep LLM orchestration.",
+    icon: "Video",
+    link: "https://github.com/03abhay",
     isCurrent: true
   },
   {
-    title: "InvestIQ – Stock Market Analysis",
-    tech: ["Python", "Streamlit", "yfinance", "Scikit-learn"],
-    description: "Built regression models for stock price forecasts, implemented time-series analysis, and predictive analytics within an interactive dashboard.",
+    title: "ASTRaL Defense Logistics",
+    tech: ["Python", "Optimization Algorithms", "ML", "Supply Chain"],
+    description: "Built an active defense logistics optimization model to minimize supply chain risks and improve resource allocation accuracy using operations research techniques.",
+    icon: "Shield",
+    link: "https://github.com/03abhay/ASTRaL-Defense-Logistics-Intelligence"
+  },
+  {
+    title: "InvestIQ – Finance Analytics",
+    tech: ["Python", "Pandas", "NLP", "Streamlit"],
+    description: "Designed a financial data analytics tool providing market insights and investment signals, reducing manual research time by ~40% through automated forecasting.",
     icon: "TrendingUp",
     link: "https://investiq-9.streamlit.app/"
   },
   {
     title: "Environmental Monitoring",
-    tech: ["Python", "Prophet", "Streamlit"],
-    description: "Developed real-time monitoring and forecasting solutions. Visualized air quality, temperature, and rainfall metrics.",
+    tech: ["Python", "Power BI", "IoT", "API Integration"],
+    description: "Built a real-time environmental monitoring system integrating multiple data sources with automated alert thresholds based on predefined KPIs.",
     icon: "CloudRain",
     link: "https://envirotrack.streamlit.app/"
   },
   {
-    title: "Twitter Data Analysis",
-    tech: ["Power BI", "Excel", "NLP"],
-    description: "Applied NLP techniques for sentiment classification, performed time-series trend analysis, and delivered actionable insights.",
+    title: "Twitter Sentiment Dashboard",
+    tech: ["NLP", "Tableau", "Power BI", "Python"],
+    description: "Developed an end-to-end NLP pipeline for Twitter sentiment classification using VADER and custom models, visualizing trends in an executive-style dashboard.",
     icon: "Twitter",
     link: "https://github.com/03abhay/Twitter-Data-Analysis"
   },
@@ -49,7 +56,8 @@ const IconMap: Record<string, { icon: React.ReactNode, color: string }> = {
   CloudRain: { icon: <CloudRain className="w-6 h-6" />, color: "text-blue-500 bg-blue-50 dark:bg-blue-900/20 group-hover:bg-blue-500" },
   Twitter: { icon: <Twitter className="w-6 h-6" />, color: "text-sky-500 bg-sky-50 dark:bg-sky-900/20 group-hover:bg-sky-500" },
   Search: { icon: <Search className="w-6 h-6" />, color: "text-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 group-hover:bg-indigo-500" },
-  Shield: { icon: <Shield className="w-6 h-6" />, color: "text-amber-500 bg-amber-50 dark:bg-amber-900/20 group-hover:bg-amber-500" }
+  Shield: { icon: <Shield className="w-6 h-6" />, color: "text-amber-500 bg-amber-50 dark:bg-amber-900/20 group-hover:bg-amber-500" },
+  Video: { icon: <Video className="w-6 h-6" />, color: "text-rose-500 bg-rose-50 dark:bg-rose-900/20 group-hover:bg-rose-500" }
 };
 
 const Projects: React.FC = () => {
