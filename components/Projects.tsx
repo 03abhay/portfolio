@@ -2,7 +2,7 @@
 import React from 'react';
 import { Project } from '../types';
 import { motion } from 'framer-motion';
-import { TrendingUp, CloudRain, Twitter, Search, ExternalLink, Shield, Github, Sparkles, Video } from 'lucide-react';
+import { TrendingUp, CloudRain, Twitter, Search, ExternalLink, Shield, Github, Sparkles, Video, Smartphone } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const projects: Project[] = [
@@ -13,6 +13,14 @@ const projects: Project[] = [
     icon: "Video",
     link: "https://github.com/03abhay",
     isCurrent: true
+  },
+  {
+    title: "YouthQuest — Exam Prep Platform",
+    tag: "Mobile App · Solo Founder",
+    tech: ["Kotlin", "Jetpack Compose", "Firebase", "Hilt", "ML"],
+    description: "Full-stack Android app targeting Indian government exam aspirants across 20+ exam categories. Features a Study Lab with video resources, gamified progress tracking, workout modules with Lottie animations, and a GPS running tracker with Kalman filter smoothing. Built solo — product, design, and engineering.",
+    icon: "Smartphone",
+    link: "https://github.com/03abhay"
   },
   {
     title: "ASTRaL Defense Logistics",
@@ -57,7 +65,8 @@ const IconMap: Record<string, { icon: React.ReactNode, color: string }> = {
   Twitter: { icon: <Twitter className="w-6 h-6" />, color: "text-sky-500 bg-sky-50 dark:bg-sky-900/20 group-hover:bg-sky-500" },
   Search: { icon: <Search className="w-6 h-6" />, color: "text-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 group-hover:bg-indigo-500" },
   Shield: { icon: <Shield className="w-6 h-6" />, color: "text-amber-500 bg-amber-50 dark:bg-amber-900/20 group-hover:bg-amber-500" },
-  Video: { icon: <Video className="w-6 h-6" />, color: "text-rose-500 bg-rose-50 dark:bg-rose-900/20 group-hover:bg-rose-500" }
+  Video: { icon: <Video className="w-6 h-6" />, color: "text-rose-500 bg-rose-50 dark:bg-rose-900/20 group-hover:bg-rose-500" },
+  Smartphone: { icon: <Smartphone className="w-6 h-6" />, color: "text-rose-500 bg-rose-50 dark:bg-rose-900/20 group-hover:bg-rose-500" }
 };
 
 const Projects: React.FC = () => {
@@ -110,6 +119,11 @@ const Projects: React.FC = () => {
                   </div>
                   
                   <div className="mb-4">
+                     {project.tag && (
+                       <span className="text-[10px] tracking-wider uppercase font-extrabold text-[#f43f5e] dark:text-[#fb7185] mb-2 block">
+                         {project.tag}
+                       </span>
+                     )}
                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors duration-300">
                         {project.title}
                      </h3>
