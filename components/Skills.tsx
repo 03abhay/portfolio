@@ -2,32 +2,38 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SkillCategory } from '../types';
 import { Reveal } from './Reveal';
-import { Brain, Database, BarChart3, Settings } from 'lucide-react';
+import { Brain, Database, BarChart3, Settings, Cpu } from 'lucide-react';
 
 const skillsData = [
   {
-    category: "Machine Learning & AI",
+    category: "⚙️ Embedded Systems & Firmware",
+    icon: <Cpu className="w-5 h-5" />,
+    color: "text-rose-500",
+    items: ["Embedded C", "MPLAB X IDE", "XC32 Compiler", "Microcontroller Programming", "Bare-Metal Firmware", "ARM Cortex", "GPIO", "UART", "SPI", "I2C", "Peripheral Interfacing", "Register-Level Programming"]
+  },
+  {
+    category: "AI, ML & GenAI",
     icon: <Brain className="w-5 h-5" />,
     color: "text-purple-500",
-    items: ["Scikit-learn", "Regression", "Clustering", "Prophet", "XGBoost", "GenAI", "NLP"]
+    items: ["Machine Learning", "NLP", "Prompt Engineering", "GenAI Evaluation", "LLM Workflows", "VADER", "TextBlob", "Scikit-learn", "TinyML (Edge AI)", "IoT Systems"]
   },
   {
-    category: "Data Engineering & Analysis",
-    icon: <Database className="w-5 h-5" />,
-    color: "text-blue-500",
-    items: ["Python", "SQL", "Pandas", "NumPy", "ETL", "Data Cleaning", "Feature Engineering"]
-  },
-  {
-    category: "Visualization & BI",
+    category: "Data Analytics & BI",
     icon: <BarChart3 className="w-5 h-5" />,
     color: "text-emerald-500",
-    items: ["Power BI", "Plotly", "Matplotlib", "Seaborn", "Tableau", "Data Storytelling"]
+    items: ["Power BI", "Tableau", "Google Analytics", "SQL", "Excel (Advanced)", "KPI Tracking", "EDA", "Data Storytelling"]
   },
   {
-    category: "Management & Tools",
+    category: "Automation & Workflow",
+    icon: <Database className="w-5 h-5" />,
+    color: "text-blue-500",
+    items: ["Python", "n8n", "Qdrant (Vector DB)", "Streamlit", "REST APIs", "Git/GitHub", "ffmpeg", "Process Automation"]
+  },
+  {
+    category: "Business Strategy",
     icon: <Settings className="w-5 h-5" />,
     color: "text-amber-500",
-    items: ["Agile (Scrum/Kanban)", "Git", "Streamlit", "Google Cloud", "Azure", "NetworkX"]
+    items: ["Requirements Analysis", "BRD/FRD Docs", "Stakeholder Reporting", "Root-Cause Analysis", "Agile/Scrum", "Process Mapping"]
   }
 ];
 
@@ -55,7 +61,7 @@ const Skills: React.FC = () => {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
           {skillsData.map((category, idx) => (
             <Reveal key={idx} delay={idx * 100}>
               <div className="relative group h-full">
