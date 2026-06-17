@@ -6,6 +6,19 @@ import { Reveal } from './Reveal';
 
 const experiences: ExperienceType[] = [
   {
+    role: "Firmware Engineer — Embedded Systems",
+    company: "Contract · On-site",
+    period: "2026 – Present",
+    badge: "⚡ Current Role",
+    details: [
+      "Writing bare-metal Embedded C for ARM Cortex-based microcontrollers using MPLAB X IDE and XC32 compiler",
+      "Performing register-level peripheral configuration — GPIO, UART, interrupt controllers — without RTOS abstraction",
+      "Working with evaluation hardware for firmware validation and debugging",
+      "Bridging low-level hardware control with broader systems understanding"
+    ],
+    skills: ["Embedded C", "MPLAB X IDE", "XC32", "ARM Cortex", "Bare-Metal", "Peripheral Interfacing"]
+  },
+  {
     role: "GenAI Powered Data Analytics Job Simulation",
     company: "Tata (via Forage)",
     period: "March 2026",
@@ -85,6 +98,11 @@ const Experience: React.FC = () => {
                 <div className="ml-12 md:ml-0 md:w-1/2 px-4">
                   <div className={`bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/30 ${idx % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
                     <div className={`flex flex-col ${idx % 2 === 0 ? 'md:items-start' : 'md:items-end'}`}>
+                      {exp.badge && (
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-500 border border-rose-500/20 mb-3 animate-pulse">
+                          {exp.badge}
+                        </span>
+                      )}
                       <span className="inline-flex items-center text-sm font-semibold text-primary mb-2">
                         <Calendar className="w-4 h-4 mr-2" /> {exp.period}
                       </span>
@@ -99,6 +117,15 @@ const Experience: React.FC = () => {
                           </li>
                         ))}
                       </ul>
+                      {exp.skills && (
+                        <div className={`flex flex-wrap gap-1.5 mt-4 ${idx % 2 === 0 ? 'md:justify-start lg:justify-start' : 'md:justify-end'}`}>
+                          {exp.skills.map((skill, si) => (
+                            <span key={si} className="text-[10px] font-bold px-2.5 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 rounded-md border border-slate-200/50 dark:border-slate-700/30">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
