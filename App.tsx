@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
+import Certifications from './components/Certifications';
 import Projects from './components/Projects';
 import ChatWidget from './components/ChatWidget';
 import Footer from './components/Footer';
@@ -82,7 +83,7 @@ function App() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-indigo-500/5 rounded-full blur-[150px]"
         />
       </div>
-      
+
       <div className="relative z-10">
         <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
         <main>
@@ -90,6 +91,7 @@ function App() {
           <About />
           <Skills />
           <Experience />
+          <Certifications />
           <Projects />
         </main>
         <Footer />
