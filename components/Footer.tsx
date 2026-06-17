@@ -11,8 +11,8 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4 hover:text-primary transition-colors duration-300 cursor-default">Abhay Singh</h3>
             <p className="text-slate-400 leading-relaxed mb-6">
-              A passionate Data Scientist leveraging machine learning to solve real-world problems. 
-              Open to opportunities in Data Science, ML, and Analytics.
+              Firmware Engineer & Data/AI Practitioner<br />
+              Building from silicon to insight.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/03abhay" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-slate-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-white/10">
