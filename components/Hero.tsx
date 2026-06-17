@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, TrendingUp, Database, Brain, Code2, Terminal, BarChart3, Zap, Cloud, Server, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Database, Brain, Code2, Terminal, BarChart3, Zap, Cloud, Server, Shield, Cpu } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { PROFILE_IMAGE_URL } from '../constants';
 
@@ -54,21 +54,21 @@ const Hero: React.FC = () => {
                 className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-100 dark:border-blue-800/50 cursor-default"
               >
                 <Sparkles className="w-3 h-3 mr-2" />
-                Creative Data Intelligence
+                Silicon to Insight
               </motion.div>
             </Reveal>
             
             <Reveal delay={200}>
               <h1 className="text-6xl md:text-8xl font-display font-extrabold text-slate-950 dark:text-white leading-[1.1] mb-8 tracking-tight">
-                Business Analyst & <br />
-                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">Data Intelligence.</span>
+                Firmware Engineer × <br />
+                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">Data & AI</span>
               </h1>
             </Reveal>
 
             <Reveal delay={300}>
               <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-12 font-light">
-                Hi, I'm <span className="font-semibold text-slate-900 dark:text-white">Abhay Singh</span>. 
-                A <span className="text-primary font-medium">Business Analyst</span> & <span className="text-primary font-medium">AI Trainer</span> specializing in GenAI, process optimization, and data-driven strategy to drive operational excellence.
+                Hi, I'm <span className="font-semibold text-slate-900 dark:text-white font-display">Abhay Singh</span>. 
+                A <span className="text-primary font-medium">Firmware Engineer</span> and <span className="text-primary font-medium">Data/AI Practitioner</span> bridging hardware intelligence and data-driven systems — writing bare-metal Embedded C for microcontrollers while staying deeply rooted in Python, ML, and analytics.
               </p>
             </Reveal>
 
@@ -203,6 +203,51 @@ const Hero: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <Brain className="w-3 h-3 md:w-4 md:h-4 text-purple-400" />
                   <span className="text-[10px] md:text-xs font-bold text-slate-600 dark:text-slate-300">AI</span>
+                </div>
+              </motion.div>
+
+              {/* Firmware & Embedded Systems Badges */}
+              <motion.div
+                animate={{ y: [0, -12, 0], x: [0, -12, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                className="absolute top-[80%] -left-6 md:-left-12 lg:-left-20 glass p-2 rounded-lg shadow-md z-20 border border-white/10 dark:border-slate-800/30 font-medium"
+              >
+                <div className="flex items-center gap-1.5 text-[10px] md:text-xs">
+                  <Terminal className="w-3.5 h-3.5 text-rose-500" />
+                  <span className="font-bold text-slate-700 dark:text-slate-300">Embedded C</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 12, 0], x: [0, 12, 0] }}
+                transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+                className="absolute top-[80%] -right-8 md:-right-16 lg:-right-24 glass p-2 rounded-lg shadow-md z-20 border border-white/10 dark:border-slate-800/30 font-medium"
+              >
+                <div className="flex items-center gap-1.5 text-[10px] md:text-xs">
+                  <Cpu className="w-3.5 h-3.5 text-rose-500 animate-pulse" />
+                  <span className="font-bold text-slate-700 dark:text-slate-300">MPLAB X</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+                className="absolute top-[20%] -left-12 md:-left-24 lg:-left-36 glass p-2 rounded-lg shadow-md z-20 border border-white/10 dark:border-slate-800/30 font-medium"
+              >
+                <div className="flex items-center gap-1.5 text-[10px] md:text-xs">
+                  <Server className="w-3.5 h-3.5 text-rose-500" />
+                  <span className="font-bold text-slate-700 dark:text-slate-300">MCU</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className="absolute top-[20%] -right-12 md:-right-24 lg:-right-36 glass p-2 rounded-lg shadow-md z-20 border border-white/10 dark:border-slate-800/30 font-medium"
+              >
+                <div className="flex items-center gap-1.5 text-[10px] md:text-xs">
+                  <Zap className="w-3.5 h-3.5 text-rose-500" />
+                  <span className="font-bold text-slate-700 dark:text-slate-300">ARM Cortex</span>
                 </div>
               </motion.div>
 
