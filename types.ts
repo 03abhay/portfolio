@@ -5,6 +5,7 @@ export interface Project {
   icon: string;
   link?: string;
   isCurrent?: boolean;
+  tag?: string;
 }
 
 export interface Experience {
@@ -12,6 +13,9 @@ export interface Experience {
   company: string;
   period: string;
   details: string[];
+  type?: string;
+  badge?: string;
+  skills?: string[];
 }
 
 export interface SkillCategory {
